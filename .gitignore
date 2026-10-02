@@ -1,0 +1,7 @@
+node_modules/
+.env
+playbook.db
+playbook.db-shm
+playbook.db-wal
+npm-debug.log*
+.DS_Store
