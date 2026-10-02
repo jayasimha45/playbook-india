@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlayBook India — Sports Venue Booking</title>
+<meta name="description" content="Explore the PlayBook India sports venue booking demo. Browse sample venues, compare example prices and preview the booking flow.">
+<meta name="theme-color" content="#176b4a">
+<meta property="og:type" content="website"><meta property="og:title" content="PlayBook India — Sports Venue Booking Demo"><meta property="og:description" content="Preview the PlayBook India venue discovery and booking experience. Sample listings only; real bookings are not enabled.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="navbar">
+  <a class="brand" href="#"><span>Play</span><b>Book</b> <strong>India</strong></a>
+  <nav><a href="#sports">Sports</a><a href="#venues">Venues</a><a href="#offers">Offers</a><button class="dark-btn" id="listVenueBtn">List Your Venue</button><button class="login-btn" id="loginBtn">Login</button></nav>
+</header>
+<div class="demo-notice" role="note"><b>Preview demo</b><span>Sample venues, ratings, prices and availability only. No real bookings or payments.</span></div>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-intro"><span class="hero-eyebrow">PLAY MORE. PLAN LESS.</span><h1>Find your game.<br><span>Book your moment.</span></h1><p class="hero-copy">Discover courts, grounds and game zones around you.</p></div>
+    <div class="search-panel">
+      <label><span>LOCATION</span><input id="location" list="locations" value="Hyderabad" placeholder="City or area"><datalist id="locations"><option>Hyderabad</option><option>Gachibowli</option><option>Madhapur</option><option>Kondapur</option><option>Jubilee Hills</option><option>HITEC City</option><option>Banjara Hills</option></datalist></label>
+      <label><span>SPORT / ACTIVITY</span><select id="sport"><option>All activities</option><option>Box Cricket</option><option>Cricket</option><option>Football</option><option>Badminton</option><option>Swimming</option><option>Pickleball</option><option>Basketball</option><option>Volleyball</option><option>Game Zone</option><option>Farmhouse</option><option>Tennis</option><option>Fitness</option></select></label>
+      <label><span>DATE</span><input id="date" type="date"></label>
+      <label><span>START TIME</span><select id="searchTime"><option value="">Any time</option><option>6:00 AM</option><option>7:00 AM</option><option>8:00 AM</option><option>9:00 AM</option><option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option></select></label>
+      <button class="search-btn" id="searchBtn">Explore venues</button>
+    </div>
+    <p class="search-demo-note">Preview search only. Date and time aren’t checked against live availability.</p>
+  </div>
+</section>
+<main id="main">
+<section class="section sports" id="sports"><div class="heading-row"><h2>Explore by sport</h2><span>Book your next game</span></div><div class="sport-grid" id="sportGrid"></div></section>
+<section class="section venues" id="venues"><div class="heading-row"><h2>Popular venues</h2><span id="resultText">Showing venues near Hyderabad</span></div><div class="discovery-controls"><label>Max price / hour <input id="maxPrice" type="number" min="0" placeholder="Any price"></label><label>Minimum rating <select id="minRating"><option value="0">Any rating</option><option value="4.5">4.5+</option><option value="4.7">4.7+</option></select></label><label>Sort by <select id="sortBy"><option value="recommended">Recommended</option><option value="priceAsc">Price: low to high</option><option value="rating">Top rated</option></select></label><label class="amenity-filter"><input id="amenityFilter" type="checkbox"> Air conditioning</label></div><div class="filters" id="filters"></div><div class="venue-grid" id="venueGrid"></div></section>
+<section class="section why" id="offers"><div class="heading-row"><h2>Preview the experience</h2></div><div class="why-grid"><article><i>📍</i><h3>Explore local venues</h3><p>Browse sample venues around Hyderabad.</p></article><article><i>◷</i><h3>Preview time slots</h3><p>Example availability only; live schedules are not connected.</p></article><article><i>💳</i><h3>See example pricing</h3><p>Prices are illustrative and checkout is not enabled.</p></article><article><i>🛡️</i><h3>Venue details</h3><p>Sample descriptions and ratings are for preview only.</p></article></div></section>
+</main>
+<footer><div class="footer-inner"><div><a class="brand footer-brand" href="#"><span>Play</span><b>Book</b> <strong>India</strong></a><p>Sports venue discovery concept. Sample content only; online booking is not available yet.</p></div><div><h4>Explore</h4><a href="#sports">Sports</a><a href="#venues">Venues</a><a href="#offers">Demo details</a></div><div><h4>For Owners</h4><button class="footer-action" id="footerList">Venue listing preview</button><span>Owner dashboard — coming soon</span></div><div><h4>Launch information</h4><span>Support contact and policies will be published before real bookings launch.</span></div></div></footer>
+<div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" aria-describedby="bookingNote"><div class="modal-card"><button class="x" data-close aria-label="Close booking preview">×</button><h2 id="bookingTitle">Book a venue</h2><p id="bookingMeta" class="muted"></p><p id="bookingAmenities" class="muted"></p><label class="modal-date" for="bookingDate">Date<input id="bookingDate" type="date"></label><label class="duration-label" for="duration">How long do you need the venue?<select id="duration"><option value="1">1 hour</option><option value="2">2 hours</option><option value="3">3 hours</option><option value="4">4 hours</option></select></label><h3 id="slotHeading">Example start times · 1-hour booking</h3><div class="slots" id="slots"></div><div class="booking-total"><span>Selected time</span><b id="chosen">None</b><span>Duration</span><b id="durationSummary">1 hour</b><span>Example total</span><b id="amount">₹0</b><span>Fees</span><b>₹0</b></div><p class="booking-note" id="bookingNote">Preview only. Slots, prices and cancellation terms are examples; no reservation or payment will be made.</p><button class="confirm" id="confirmBooking">Preview checkout</button></div></div>
+<div class="modal" id="ownerModal" role="dialog" aria-modal="true" aria-labelledby="ownerTitle" aria-describedby="ownerNote"><div class="modal-card"><button class="x" data-close aria-label="Close venue listing preview">×</button><h2 id="ownerTitle">List your venue</h2><p class="muted" id="ownerNote">This preview form does not submit or store venue details.</p><label class="form-label" for="ownerName">Venue name<input class="modal-input" id="ownerName" placeholder="e.g. City Sports Arena"></label><label class="form-label" for="ownerCity">City / locality<input class="modal-input" id="ownerCity" placeholder="e.g. Gachibowli, Hyderabad"></label><label class="form-label" for="ownerActivity">Activity<select class="modal-input" id="ownerActivity"><option value="">Choose activity</option><option>Box Cricket</option><option>Badminton</option><option>Football</option><option>Swimming</option><option>Pickleball</option></select></label><label class="form-label" for="ownerPrice">Example price per hour<input class="modal-input" id="ownerPrice" type="number" min="0" placeholder="₹"></label><button class="confirm" id="submitOwner">Preview only</button></div></div>
+<div class="toast" id="toast"></div>
+<script src="script.js?v=5"></script>
+</body></html>
